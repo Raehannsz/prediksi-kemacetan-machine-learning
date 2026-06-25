@@ -125,7 +125,7 @@ with st.sidebar:
         )
         st.metric("Kapasitas Jalan", f"{C:,.0f} SMP/jam")
         st.metric("Tipe Jalan", "2/2-TT")
-    st.caption("UTS Machine Learning\nUniversitas Amikom Yogyakarta")
+    st.caption("Machine Learning\n")
 
 if not data_ok:
     st.stop()
