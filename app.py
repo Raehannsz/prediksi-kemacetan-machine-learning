@@ -255,7 +255,7 @@ elif page == "EDA & Analisis":
     st.title("Exploratory Data Analysis")
     st.divider()
 
-    tab1, tab2, tab3 = st.tabs(["🚗 Komposisi Kendaraan", "👥 Populasi", "🔗 Korelasi"])
+    tab1, tab2, tab3 = st.tabs(["Komposisi Kendaraan", "Populasi", "Korelasi"])
 
     with tab1:
         st.subheader("Komposisi Kendaraan Terdaftar 2015–2024")
