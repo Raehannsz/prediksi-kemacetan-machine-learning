@@ -22,7 +22,6 @@ warnings.filterwarnings("ignore")
 # ─── Page Config ────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Prediksi Kemacetan – Citimall Dumai",
-    page_icon="🚦",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -102,11 +101,7 @@ except Exception as e:
 
 # ─── Sidebar ─────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image(
-        "https://upload.wikimedia.org/wikipedia/commons/8/82/Traffic_light_icon.svg",
-        width=60,
-    )
-    st.title("🚦 Citimall Dumai")
+    st.title("Citimall Dumai")
     st.caption("Prediksi Kemacetan Lalu Lintas")
     st.divider()
 
@@ -903,7 +898,7 @@ elif page == "Model & Prediksi":
         col_r1, col_r2, col_r3, col_r4 = st.columns(4)
         with col_r1:
             st.metric(
-                "🚦 Derajat Jenuh (Dj)",
+                "Derajat Jenuh (Dj)",
                 f"{Dj_pred:.4f}",
                 delta=f"Puncak: {Dj_puncak:.4f}",
             )
