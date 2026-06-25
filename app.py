@@ -158,7 +158,7 @@ if page == "Overview":
 
     # KPI row
     col1, col2, col3, col4 = st.columns(4)
-    latest_kin = df_kin[df_kin["Tahun"] == df_kin["Tahun"].max()]
+    latest_kin = df_kin[df_kin["Tahun"] == df_kin["Tahun"].min()]
     avg_dj = latest_kin["Dj"].mean()
     avg_q = latest_kin["Q_smp_jam"].mean()
     latest_kend = df_kend[df_kend["Tahun"] == df_kend["Tahun"].max()]
