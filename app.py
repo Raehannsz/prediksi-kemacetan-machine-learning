@@ -113,12 +113,12 @@ with st.sidebar:
     page = st.radio(
         "Navigasi",
         [
-            "🏠 Overview",
-            "📊 EDA & Analisis",
-            "⏱️ Pola Per Jam",
-            "🛣️ Kinerja Jalan",
-            "🤖 Model & Prediksi",
-            "📈 Before vs After Tuning",
+            "Overview",
+            "EDA & Analisis",
+            "Pola Per Jam",
+            "Kinerja Jalan",
+            "Model & Prediksi",
+            "Before vs After Tuning",
         ],
         label_visibility="collapsed",
     )
@@ -155,8 +155,8 @@ def los_badge(los):
 # ════════════════════════════════════════════════════════════════════════════════
 # PAGE: OVERVIEW
 # ════════════════════════════════════════════════════════════════════════════════
-if page == "🏠 Overview":
-    st.title("🚦 Prediksi Kemacetan Lalu Lintas")
+if page == "Overview":
+    st.title("Prediksi Kemacetan Lalu Lintas")
     st.subheader("Citimall Dumai – Metode Regresi Linear & Polynomial")
     st.caption("Universitas Amikom Yogyakarta | UTS Machine Learning")
     st.divider()
@@ -172,14 +172,14 @@ if page == "🏠 Overview":
     total_pddk = latest_pddk["Penduduk"].values[0]
 
     with col1:
-        st.metric("📅 Tahun Data Terbaru", df_kin["Tahun"].max())
+        st.metric("Tahun Data Terbaru", df_kin["Tahun"].max())
     with col2:
-        st.metric("🚗 Total Kendaraan Terdaftar", f"{total_kend:,}")
+        st.metric("Total Kendaraan Terdaftar", f"{total_kend:,}")
     with col3:
-        st.metric("👥 Populasi Dumai", f"{total_pddk:,}")
+        st.metric("Populasi Dumai", f"{total_pddk:,}")
     with col4:
         los_val = latest_kin["LoS"].mode()[0]
-        st.metric("🛣️ Level of Service", los_val, delta=f"Dj avg: {avg_dj:.4f}")
+        st.metric("Level of Service", los_val, delta=f"Dj avg: {avg_dj:.4f}")
 
     st.divider()
 
@@ -187,7 +187,7 @@ if page == "🏠 Overview":
 
     # Tren Total Kendaraan
     with col_l:
-        st.subheader("📈 Tren Total Kendaraan (2015–2024)")
+        st.subheader("Tren Total Kendaraan (2015–2024)")
         fig = px.line(
             df_kend,
             x="Tahun",
@@ -217,7 +217,7 @@ if page == "🏠 Overview":
 
     # Tren Derajat Jenuh
     with col_r:
-        st.subheader("📊 Tren Derajat Jenuh (Dj) per Survei")
+        st.subheader("Tren Derajat Jenuh (Dj) per Survei")
         fig2 = px.bar(
             df_kin,
             x="Hari_Ke",
@@ -256,8 +256,8 @@ if page == "🏠 Overview":
 # ════════════════════════════════════════════════════════════════════════════════
 # PAGE: EDA
 # ════════════════════════════════════════════════════════════════════════════════
-elif page == "📊 EDA & Analisis":
-    st.title("📊 Exploratory Data Analysis")
+elif page == "EDA & Analisis":
+    st.title("Exploratory Data Analysis")
     st.divider()
 
     tab1, tab2, tab3 = st.tabs(["🚗 Komposisi Kendaraan", "👥 Populasi", "🔗 Korelasi"])
@@ -387,8 +387,8 @@ elif page == "📊 EDA & Analisis":
 # ════════════════════════════════════════════════════════════════════════════════
 # PAGE: POLA PER JAM
 # ════════════════════════════════════════════════════════════════════════════════
-elif page == "⏱️ Pola Per Jam":
-    st.title("⏱️ Pola Lalu Lintas Per Jam")
+elif page == "Pola Per Jam":
+    st.title("Pola Lalu Lintas Per Jam")
     st.caption("Data Survei: Kamis, 21 November 2019")
     st.divider()
 
@@ -466,15 +466,15 @@ elif page == "⏱️ Pola Per Jam":
 
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        st.metric("🔴 Jam Puncak", peak_row["Periode"])
+        st.metric("Jam Puncak", peak_row["Periode"])
     with c2:
-        st.metric("📈 Q Puncak", f"{peak_row['Q_total_H1']:.1f} SMP/jam")
+        st.metric("Q Puncak", f"{peak_row['Q_total_H1']:.1f} SMP/jam")
     with c3:
-        st.metric("➡️ Arah Utara Peak", f"{df_jam.loc[idx_peak, 'Q_utara_H1']:.1f}")
+        st.metric("Arah Utara Peak", f"{df_jam.loc[idx_peak, 'Q_utara_H1']:.1f}")
     with c4:
-        st.metric("⬅️ Arah Barat Peak", f"{df_jam.loc[idx_peak, 'Q_barat_H1']:.1f}")
+        st.metric("Arah Barat Peak", f"{df_jam.loc[idx_peak, 'Q_barat_H1']:.1f}")
 
-    st.subheader("📋 Tabel Data Per Jam")
+    st.subheader("Tabel Data Per Jam")
     st.dataframe(
         df_jam.style.highlight_max(
             subset=["Q_total_H1", "Faktor_Waktu"], color="#fadbd8"
@@ -485,8 +485,8 @@ elif page == "⏱️ Pola Per Jam":
 # ════════════════════════════════════════════════════════════════════════════════
 # PAGE: KINERJA JALAN
 # ════════════════════════════════════════════════════════════════════════════════
-elif page == "🛣️ Kinerja Jalan":
-    st.title("🛣️ Kinerja Jalan – Volume & Derajat Jenuh")
+elif page == "Kinerja Jalan":
+    st.title("Kinerja Jalan – Volume & Derajat Jenuh")
     st.divider()
 
     # Filter tahun
@@ -537,7 +537,7 @@ elif page == "🛣️ Kinerja Jalan":
         st.plotly_chart(fig2, use_container_width=True)
 
     st.divider()
-    st.subheader("📋 Level of Service (LoS) Summary")
+    st.subheader("Level of Service (LoS) Summary")
 
     los_counts = df_filt["LoS"].value_counts().reset_index()
     los_counts.columns = ["LoS", "Frekuensi"]
@@ -566,14 +566,14 @@ elif page == "🛣️ Kinerja Jalan":
         st.plotly_chart(fig3, use_container_width=True)
 
     st.divider()
-    st.subheader("📋 Tabel Kinerja Jalan")
+    st.subheader("Tabel Kinerja Jalan")
     st.dataframe(df_filt, use_container_width=True)
 
 # ════════════════════════════════════════════════════════════════════════════════
 # PAGE: MODEL & PREDIKSI
 # ════════════════════════════════════════════════════════════════════════════════
-elif page == "🤖 Model & Prediksi":
-    st.title("🤖 Model Regresi & Prediksi Kemacetan")
+elif page == "Model & Prediksi":
+    st.title("Model Regresi & Prediksi Kemacetan")
     st.divider()
 
     # ── Build Models ────────────────────────────────────────────────────────
@@ -604,7 +604,7 @@ elif page == "🤖 Model & Prediksi":
     poly_pipe.fit(X_train, y_train)
 
     tab_eval, tab_pred, tab_future = st.tabs(
-        ["📐 Evaluasi Model", "🔍 Visualisasi Prediksi", "🔮 Prediksi Masa Depan"]
+        ["Evaluasi Model", "Visualisasi Prediksi", "Prediksi Masa Depan"]
     )
 
     with tab_eval:
@@ -856,27 +856,27 @@ elif page == "🤖 Model & Prediksi":
                 return "DARURAT. Segera lakukan pengalihan arus & koordinasi dengan Dishub."
 
         # ── Inputs ───────────────────────────────────────────────────────────
-        st.subheader("🎮 Alat Prediksi Interaktif – Cell 9")
+        st.subheader("Alat Prediksi Interaktif – Cell 9")
         st.caption("Ubah parameter di bawah → hasil langsung update otomatis.")
         st.divider()
 
         col_inp1, col_inp2 = st.columns([1, 1])
         with col_inp1:
-            inp_tahun = st.slider("📅 Tahun", 2019, 2027, 2024)
-            inp_hari = st.selectbox("📆 Hari", list(HARI_FAKTOR.keys()), index=4)
+            inp_tahun = st.slider("Tahun", 2019, 2027, 2024)
+            inp_hari = st.selectbox("Hari", list(HARI_FAKTOR.keys()), index=4)
             jam_options = {
                 f"{int(j):02d}:{int((j % 1) * 60):02d}": j
                 for j in sorted(WAKTU_FAKTOR.keys())
             }
             inp_jam_label = st.select_slider(
-                "🕐 Jam Survei", options=list(jam_options.keys()), value="17:30"
+                "Jam Survei", options=list(jam_options.keys()), value="17:30"
             )
             inp_jam = jam_options[inp_jam_label]
 
         with col_inp2:
-            inp_arah = st.radio("🧭 Arah Lalu Lintas", list(ARAH_FAKTOR.keys()))
-            inp_kend = st.selectbox("🚗 Tipe Kendaraan", list(KEND_PROPORSI.keys()))
-            show_chart = st.checkbox("📊 Tampilkan grafik fluktuasi harian", value=True)
+            inp_arah = st.radio("Arah Lalu Lintas", list(ARAH_FAKTOR.keys()))
+            inp_kend = st.selectbox("Tipe Kendaraan", list(KEND_PROPORSI.keys()))
+            show_chart = st.checkbox("ampilkan grafik fluktuasi harian", value=True)
 
         st.divider()
 
@@ -909,11 +909,11 @@ elif page == "🤖 Model & Prediksi":
             )
         with col_r2:
             st.metric(
-                "📊 Volume Q", f"{Q_pred:.1f} SMP/jam", delta=f"Puncak: {Q_puncak:.1f}"
+                "Volume Q", f"{Q_pred:.1f} SMP/jam", delta=f"Puncak: {Q_puncak:.1f}"
             )
         with col_r3:
             st.metric(
-                "🏁 Sisa Kapasitas",
+                "Sisa Kapasitas",
                 f"{sisa_kap:.1f} SMP/jam",
                 delta=f"{sisa_kap / C * 100:.1f}% tersisa",
             )
@@ -928,11 +928,11 @@ elif page == "🤖 Model & Prediksi":
             )
 
         st.markdown(f"**Status:** {get_status(Dj_pred)}")
-        st.info(f"💡 **Rekomendasi:** {get_rekomendasi(Dj_pred)}")
+        st.info(f"**Rekomendasi:** {get_rekomendasi(Dj_pred)}")
 
         # ── Faktor breakdown ──────────────────────────────────────────────────
         st.divider()
-        st.subheader("🔬 Breakdown Faktor")
+        st.subheader("Breakdown Faktor")
         c1, c2, c3 = st.columns(3)
         with c1:
             st.metric(
@@ -981,7 +981,7 @@ elif page == "🤖 Model & Prediksi":
         # ── Hourly fluctuation chart ──────────────────────────────────────────
         if show_chart:
             st.divider()
-            st.subheader(f"📈 Fluktuasi Dj Sepanjang Hari — {inp_hari}, {inp_tahun}")
+            st.subheader(f"Fluktuasi Dj Sepanjang Hari — {inp_hari}, {inp_tahun}")
             jam_list = sorted(WAKTU_FAKTOR.keys())
             dj_harian = [
                 min(Dj_puncak * f_hari * WAKTU_FAKTOR[j] * f_arah, 1.5)
@@ -1058,7 +1058,7 @@ elif page == "🤖 Model & Prediksi":
 
         # ── Annual trend ──────────────────────────────────────────────────────
         st.divider()
-        st.subheader("📅 Tren Dj Tahunan (2019–2027)")
+        st.subheader("Tren Dj Tahunan (2019–2027)")
         dj_hist_avg = df_kin.groupby("Tahun")["Dj"].mean().reset_index()
         df_prediksi["LoS"] = df_prediksi["Dj_Prediksi"].apply(get_los)
 
@@ -1113,7 +1113,7 @@ elif page == "🤖 Model & Prediksi":
         st.plotly_chart(fig_trend, use_container_width=True)
 
         # ── Table ─────────────────────────────────────────────────────────────
-        st.subheader("📋 Tabel Prediksi Tahunan (2019–2027)")
+        st.subheader("Tabel Prediksi Tahunan (2019–2027)")
 
         def color_los_tbl(val):
             return f"background-color:{LOS_COLOR.get(val, '#fff')};color:white"
@@ -1133,8 +1133,8 @@ elif page == "🤖 Model & Prediksi":
 # ════════════════════════════════════════════════════════════════════════════════
 # PAGE: BEFORE vs AFTER TUNING
 # ════════════════════════════════════════════════════════════════════════════════
-elif page == "📈 Before vs After Tuning":
-    st.title("📈 Before vs After Tuning – Perbandingan Model")
+elif page == "Before vs After Tuning":
+    st.title("Before vs After Tuning – Perbandingan Model")
     st.divider()
 
     feature_cols = ["X_tahun", "Total_Kendaraan", "Penduduk", "Q_smp_jam"]
@@ -1146,7 +1146,7 @@ elif page == "📈 Before vs After Tuning":
 
     kf5 = KFold(n_splits=5, shuffle=True, random_state=42)
 
-    with st.spinner("⚙️ Melatih semua model..."):
+    with st.spinner("Melatih semua model..."):
         # BEFORE
         X_tr_b, X_te_b, y_tr_b, y_te_b = train_test_split(
             X_all, y_all, test_size=0.25, random_state=42
@@ -1360,7 +1360,7 @@ elif page == "📈 Before vs After Tuning":
 
     # ── Full comparison table ──────────────────────────────────────────────
     st.divider()
-    st.subheader("📋 Tabel Perbandingan Lengkap")
+    st.subheader("Tabel Perbandingan Lengkap")
     rows = [
         {
             "Status": "BEFORE",
@@ -1406,4 +1406,4 @@ elif page == "📈 Before vs After Tuning":
         use_container_width=True,
     )
 
-    st.success(f"🏆 **Best Model: {best_name}** — CV R² = {best['CV_R2']:.6f}")
+    st.success(f"**Best Model: {best_name}** — CV R² = {best['CV_R2']:.6f}")
