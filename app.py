@@ -153,7 +153,6 @@ def los_badge(los):
 if page == "Overview":
     st.title("Prediksi Kemacetan Lalu Lintas")
     st.subheader("Citimall Dumai – Metode Regresi Linear & Polynomial")
-    st.caption("Universitas Amikom Yogyakarta | UTS Machine Learning")
     st.divider()
 
     # KPI row
